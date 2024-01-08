@@ -1,0 +1,20 @@
+{
+  "name": "simple-email-webhook",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "docker build . -t simple-email-webhook",
+    "save": "docker save simple-email-webhook -o simple-email-webhook.tar"
+  },
+  "author": "ondrejnedoma",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "nodemailer": "^6.9.8"
+  }
+}
