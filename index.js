@@ -30,6 +30,8 @@ app.use(limiter);
 
 app.use(cors());
 
+app.options("*", cors());
+
 app.post("/", async (req, res) => {
   console.log(req.body);
   const { name, phone, email, body } = req.body;

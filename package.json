@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "docker build . -t ondrejnedoma/simple-email-webhook:1.4",
+    "build": "docker build . -t ondrejnedoma/simple-email-webhook:1.5",
     "save": "docker save ondrejnedoma/simple-email-webhook:latest -o simple-email-webhook.tar"
   },
   "author": "ondrejnedoma",
