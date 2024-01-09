@@ -15,7 +15,6 @@ const {
   SMTP_PASS,
   TO_EMAIL,
   MESSAGES_PER_DAY,
-  CORS_ORIGIN,
   PROXIES,
 } = process.env;
 
@@ -29,11 +28,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-const corsOptions = {
-  origin: CORS_ORIGIN,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.post("/", async (req, res) => {
   const { name, phone, email, body } = req.body;
