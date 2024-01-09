@@ -19,6 +19,8 @@ const {
   PROXIES,
 } = process.env;
 
+app.set("trust proxy", parseInt(PROXIES));
+
 const limiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, //24 hours
   max: parseInt(MESSAGES_PER_DAY),
@@ -32,7 +34,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.set("trust proxy", parseInt(PROXIES));
 
 app.post("/", async (req, res) => {
   const { name, phone, email, body } = req.body;
