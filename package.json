@@ -6,12 +6,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "docker build . -t simple-email-webhook",
-    "save": "docker save simple-email-webhook -o simple-email-webhook.tar"
+    "build": "docker build . -t ondrejnedoma/simple-email-webhook:1.0",
+    "save": "docker save ondrejnedoma/simple-email-webhook:latest -o simple-email-webhook.tar"
   },
   "author": "ondrejnedoma",
   "license": "GPL-3.0",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-rate-limit": "^7.1.5",

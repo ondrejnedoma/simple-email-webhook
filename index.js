@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import rateLimit from "express-rate-limit";
 import * as nodemailer from "nodemailer";
 import dotenv from "dotenv";
@@ -14,6 +15,8 @@ const {
   SMTP_PASS,
   TO_EMAIL,
   MESSAGES_PER_DAY,
+  CORS_ORIGIN,
+  PROXIES,
 } = process.env;
 
 const limiter = rateLimit({
@@ -23,6 +26,13 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
+
+const corsOptions = {
+  origin: CORS_ORIGIN,
+};
+
+app.use(cors(corsOptions));
+app.set("trust proxy", parseInt(PROXIES));
 
 app.post("/", async (req, res) => {
   const { name, phone, email, body } = req.body;
