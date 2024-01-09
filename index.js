@@ -31,6 +31,7 @@ app.use(limiter);
 app.use(cors());
 
 app.post("/", async (req, res) => {
+  console.log(req.body);
   const { name, phone, email, body } = req.body;
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
